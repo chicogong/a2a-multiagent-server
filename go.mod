@@ -7,6 +7,8 @@ toolchain go1.24.2
 require (
 	github.com/joho/godotenv v1.5.1
 	github.com/sashabaranov/go-openai v1.19.2
+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.1159
+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/trtc v1.0.1155
 	trpc.group/trpc-go/trpc-a2a-go v0.0.1
 )
 

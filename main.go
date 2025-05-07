@@ -394,6 +394,31 @@ Please only reply with "XiaoMei" or "XiaoShuai"`,
 		log.Printf("Intent detection result: User wants to talk to %s", intent)
 	}
 
+	// Call TRTC API to update TTS voice based on detected intent
+	if intent == "XiaoMei" {
+		log.Printf("Starting TTS update for XiaoMei, taskid: %s", taskID)
+		if len(taskID) > 64 {
+			if err := UpdateAIConversationXiaoMei(taskID); err != nil {
+				log.Printf("Failed to update TTS for XiaoMei: %v", err)
+			} else {
+				log.Printf("Successfully updated TTS for XiaoMei")
+			}
+		} else {
+			log.Printf("Invalid taskID length for XiaoMei: %s", taskID)
+		}
+	} else {
+		log.Printf("Starting TTS update for XiaoShuai, taskid: %s", taskID)
+		if len(taskID) > 64 {
+			if err := UpdateAIConversationXiaoShuai(taskID); err != nil {
+				log.Printf("Failed to update TTS for XiaoShuai: %v", err)
+			} else {
+				log.Printf("Successfully updated TTS for XiaoShuai")
+			}
+		} else {
+			log.Printf("Invalid taskID length for XiaoShuai: %s", taskID)
+		}
+	}
+
 	return intent, nil
 }
 
